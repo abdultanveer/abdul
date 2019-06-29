@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".WhatsappActivity">
 
     <EditText
         android:id="@+id/editTextName"
@@ -42,25 +42,26 @@
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="23dp"
         android:layout_marginLeft="23dp"
         android:layout_marginTop="21dp"
-        android:text="login"
+        android:text="camera"
         android:onClick="handleClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
         android:layout_marginTop="20dp"
         android:text="cancel"
+        android:onClick="handleClick"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 </android.support.constraint.ConstraintLayout>
