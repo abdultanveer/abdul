@@ -28,7 +28,7 @@
         android:layout_marginTop="134dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="picture"
+        android:hint="@string/picture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +39,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="29dp"
-        android:text="take photo"
+        android:text="@string/take_photo"
         android:onClick="clickHandler"
         app:layout_constraintStart_toStartOf="@+id/editTextPicture"
         app:layout_constraintTop_toBottomOf="@+id/editTextPicture" />

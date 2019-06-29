@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">abdul</string>
+    <string name="enter_name">नाम दर्ज</string>
+    <string name="enter_password">पास वर्ड दर्ज करें</string>
+    <string name="camera">कैमरा</string>
+    <string name="cancel">रद्द करना</string>
+    <string name="picture">picture</string>
+    <string name="take_photo">take photo</string>
+</resources>
