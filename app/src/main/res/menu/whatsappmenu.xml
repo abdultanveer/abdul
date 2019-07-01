@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item  android:title="location"  android:id="@+id/locationmenuitem"/>
+    <item  android:title="contact"  android:id="@+id/contactmenuitem"/>
+    <item  android:title="photo"  android:id="@+id/photomenuitem"/>
+    <item  android:title="menu"  android:id="@+id/menuitem"/>
+
+</menu>

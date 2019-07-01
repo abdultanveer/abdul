@@ -8,6 +8,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,7 +29,7 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); //inflating layout file -- layoutinflater
 
         if(savedInstanceState !=null) {
             Log.i(TAG, "mysaveddata= " + savedInstanceState.getString(MY_KEY));
@@ -40,6 +44,7 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
                 countries);
 
         ListView countriesListView = findViewById(R.id.countriesListview);
+        registerForContextMenu(countriesListView);
         countriesListView.setAdapter(adapter);
         countriesListView.setOnItemClickListener(this);
 
@@ -93,6 +98,45 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
        // Toast.makeText(this, "welcome", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+         super.onCreateOptionsMenu(menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.whatsappmenu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+         super.onOptionsItemSelected(item);
+
+         switch (item.getItemId()){
+             case R.id.locationmenuitem:
+                 Toast.makeText(this, "location clicked", Toast.LENGTH_SHORT).show();
+                 break;
+         }
+
+        return true;
+    }
+
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.whatsappcontextualmenu,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+         super.onContextItemSelected(item);
+         switch (item.getItemId()){
+             case R.id.editmenuitem:
+                 Toast.makeText(this, "edit selected", Toast.LENGTH_SHORT).show();
+                 break;
+         }
+
+        return true;
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
