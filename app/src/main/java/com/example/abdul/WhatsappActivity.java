@@ -7,6 +7,7 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -21,10 +22,10 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class WhatsappActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener { //AppCompatActivity will ensure  backward compatibility
+public class WhatsappActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener, View.OnClickListener { //AppCompatActivity will ensure  backward compatibility
     public  static String KEY = "name";
     public  static String MY_KEY = "mykey";
-
+    private Button loginButton;
     public  static  String TAG = WhatsappActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
     protected void onStart() {
         super.onStart();
         Log.i(TAG,"onStart");
+         loginButton = findViewById(R.id.buttonLogin);
+        loginButton.setOnClickListener(this);
     }
 
     @Override
@@ -172,5 +175,26 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
         Toast.makeText(this, item, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        showPopupMenu();
+    }
+
+    private void showPopupMenu(){
+        PopupMenu popup = new PopupMenu(WhatsappActivity.this, loginButton);
+        popup.getMenuInflater().inflate(
+                R.menu.whatsappcontextualmenu, popup.getMenu());
+        popup.setOnMenuItemClickListener(
+                new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        return true;
+                    }
+                    // implement click listener
+                });
+        popup.show();
+
     }
 }
