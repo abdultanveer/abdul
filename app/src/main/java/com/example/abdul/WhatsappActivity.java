@@ -10,12 +10,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class WhatsappActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener { //AppCompatActivity will ensure  backward compatibility
+public class WhatsappActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener { //AppCompatActivity will ensure  backward compatibility
     public  static String KEY = "name";
     public  static String MY_KEY = "mykey";
 
@@ -30,6 +32,16 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
         }
         Spinner languageSpinner = findViewById(R.id.spinner);
         languageSpinner.setOnItemSelectedListener(this);
+
+        String[] countries = new String[]{"india","usa","uk"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1,
+                countries);
+
+        ListView countriesListView = findViewById(R.id.countriesListview);
+        countriesListView.setAdapter(adapter);
+        countriesListView.setOnItemClickListener(this);
 
 
     }
@@ -110,5 +122,11 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String item = parent.getItemAtPosition(position).toString();
+        Toast.makeText(this, item, Toast.LENGTH_SHORT).show();
     }
 }
