@@ -9,11 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-public class WhatsappActivity extends AppCompatActivity { //AppCompatActivity will ensure  backward compatibility
+public class WhatsappActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener { //AppCompatActivity will ensure  backward compatibility
     public  static String KEY = "name";
     public  static String MY_KEY = "mykey";
 
@@ -22,9 +24,12 @@ public class WhatsappActivity extends AppCompatActivity { //AppCompatActivity wi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if(savedInstanceState !=null) {
             Log.i(TAG, "mysaveddata= " + savedInstanceState.getString(MY_KEY));
         }
+        Spinner languageSpinner = findViewById(R.id.spinner);
+        languageSpinner.setOnItemSelectedListener(this);
 
 
     }
@@ -93,5 +98,17 @@ public class WhatsappActivity extends AppCompatActivity { //AppCompatActivity wi
 
         }
         //request -- identify which activity is returning i.e camera,contact, location
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+       String item = parent.getItemAtPosition(position).toString();
+        Toast.makeText(this, item, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
