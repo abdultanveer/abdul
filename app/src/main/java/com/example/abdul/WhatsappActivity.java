@@ -57,7 +57,7 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
         super.onStart();
         Log.i(TAG,"onStart");
          loginButton = findViewById(R.id.buttonLogin);
-        loginButton.setOnClickListener(this);
+        //loginButton.setOnClickListener(this);
     }
 
     @Override
@@ -179,7 +179,7 @@ public class WhatsappActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onClick(View v) {
-        showPopupMenu();
+       // showPopupMenu();
     }
 
     private void showPopupMenu(){
