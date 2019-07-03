@@ -29,7 +29,10 @@
         <activity
             android:name=".CameraActivity"
             android:theme="@style/redtext" />
-        <activity android:name=".WhatsappActivity" />
+        <activity android:name=".WhatsappActivity" >
+
+
+        </activity>
     </application>
 
 </manifest>
